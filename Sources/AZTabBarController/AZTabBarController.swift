@@ -579,12 +579,8 @@ open class AZTabBarController: UIViewController {
         if let titleColor = titleColor { color = titleColor }
         else { color = selectedColor }
 
-
-        // case `selected` use buttonsColors[index] or `color` if not found.
-        button.setTitleColor(buttonsColors[index] ?? color, for: .selected)
-
-        // case `selected` and `highlighted` use buttonsColors[index] or `color` if not found.
-        button.setTitleColor(buttonsColors[index] ?? color, for: [.selected,.highlighted])
+        button.setTitleColor(color, for: .selected)
+        button.setTitleColor(color, for: [.selected,.highlighted])
 
         // any other case use `self.defaultColor`.
         button.setTitleColor(defaultColor, for: [])
@@ -925,13 +921,13 @@ open class AZTabBarController: UIViewController {
             if isHighlighted{
                 color = self.highlightedBackgroundColor
             }else{
-                color = buttonsColors[i] ?? self.selectedColor
+                color = self.selectedColor
             }
             
             button.titleLabel?.font = font
             
-            button.setTitleColor(buttonsColors[i] ?? selectedColor, for: .selected)
-            button.setTitleColor(buttonsColors[i] ?? selectedColor, for: [.selected,.highlighted])
+            button.setTitleColor(selectedColor, for: .selected)
+            button.setTitleColor(selectedColor, for: [.selected,.highlighted])
             button.setTitleColor(defaultColor, for: [])
             
             let title: String? = button.title(for: []) ?? button.title(for: .selected)
@@ -951,7 +947,7 @@ open class AZTabBarController: UIViewController {
                                                selectedColor: color,
                                                highlighted: isHighlighted,
                                                defaultColor: self.defaultColor,
-                                               highlightColor: buttonsColors[i] ?? self.highlightColor,
+                                               highlightColor: self.highlightColor,
                                                ignoreColor: ignoreIconColors)
         }
     }
