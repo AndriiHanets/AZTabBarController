@@ -96,22 +96,13 @@ public class AZTabBarButton: UIButton{
             return
         }
         
-        let animate = delegate.shouldAnimate(self)
-        
         if let titleLabel = titleLabel{
             titleLabel.frame = self.titleRect(forContentRect: self.frame)
         }
         
         self.imageView?.frame = self.imageRect(forContentRect: self.frame)
         
-        if animate {
-          UIView.animate(withDuration: 0.1) {
-            super.layoutSubviews()
-          }
-        }else{
-          super.layoutSubviews()
-        }
-        
+        super.layoutSubviews()
     }
     
     
