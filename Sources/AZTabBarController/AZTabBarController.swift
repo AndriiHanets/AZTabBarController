@@ -443,13 +443,6 @@ open class AZTabBarController: UIViewController {
         let selectedButtonX: CGFloat = self.buttons[self.selectedIndex].frame.origin.x
         self.selectionIndicatorLeadingConstraint.constant = selectedButtonX
     }
-
-    override open func viewSafeAreaInsetsDidChange() {
-        if #available(iOS 11.0, *) {
-            super.viewSafeAreaInsetsDidChange()
-            tabBarHeight = buttonsContainerHeightConstraintInitialConstant
-        }
-    }
     
     /*
      * MARK: - AZTabBarController
