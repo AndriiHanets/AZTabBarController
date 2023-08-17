@@ -1050,7 +1050,7 @@ open class AZTabBarController: UIViewController {
     private func setupSeparatorLine() {
         self.separatorLine.backgroundColor = self.separatorLineColor
         self.separatorLine.isHidden = !self.separatorLineVisible
-        self.separatorLineHeightConstraint.constant = 0.5
+        self.separatorLineHeightConstraint.constant = 1
     }
     
     private func moveSelectionIndicator(toIndex index: Int,animated:Bool){
